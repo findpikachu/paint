@@ -46,6 +46,9 @@ body {
     transition: all 0.3s;
 }
 
+.colors .black {
+    background-color: black;
+}
 .colors .red {
     background-color: red;
 }

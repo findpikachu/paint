@@ -9,12 +9,14 @@ function draw() {
     let red = document.querySelector(".red")
     let blue = document.querySelector(".blue")
     let green = document.querySelector(".green")
+    let black = document.querySelector(".black")
     let startPoint = {},endPoint = {},ctx
     if (canvas.getContext)
         ctx = canvas.getContext("2d")
 
     canvas.width = document.documentElement.clientWidth
     canvas.height = document.documentElement.clientHeight
+    black.classList.add("active")
     if (document.body.ontouchstart !== undefined) {
         canvas.ontouchstart = (event) => {
             startPoint.x = event.touches[0].clientX
@@ -94,23 +96,33 @@ function draw() {
         isPaint = false
         useEraser = false
     }
+    black.onclick = (event) => {
+        ctx.strokeStyle = "black"
+        event.target.classList.add("active")
+        green.classList.remove("active")
+        blue.classList.remove("active")
+        red.classList.remove("active")
+    }
     red.onclick = (event) => {
         ctx.strokeStyle = "red"
         event.target.classList.add("active")
         green.classList.remove("active")
         blue.classList.remove("active")
+        black.classList.remove("active")
     }
     green.onclick = (event) => {
         ctx.strokeStyle = "green"
         event.target.classList.add("active")
         red.classList.remove("active")
         blue.classList.remove("active")
+        black.classList.remove("active")
     }
     blue.onclick = (event) => {
         ctx.strokeStyle = "blue"
         event.target.classList.add("active")
         green.classList.remove("active")
         red.classList.remove("active")
+        black.classList.remove("active")
     }
 }
 
